@@ -15,6 +15,15 @@ import exeception.PeterException;
 public interface ClientRMI extends Remote {
 
 	/**
+	 * <b>
+	 * <p>s% - hostname</p>
+	 * <p>s% - number port</p>
+	 * <p>s% - name client</p>
+	 * </b>
+	 **/
+	static final String FORMAT_URL_CLIENT = "%s:%s/peter/client/%s";
+	
+	/**
 	 * Connect to server and add it to registry 
 	 * 
 	 *@param		host String  
@@ -33,4 +42,25 @@ public interface ClientRMI extends Remote {
 	 *@see			{@link Message}
 	 **/
 	public void sendMessage( Message msg ) throws PeterException;
+	
+	/**
+	 * Hostname from client 
+	 * 
+	 *@return		hostname String
+	 **/
+	public String getHostname();
+	
+	/**
+	 * Port from client 
+	 * 
+	 *@return		port Integer
+	 **/
+	public Integer getPort();
+	
+	/**
+	 * Name from client 
+	 * 
+	 *@return		port String
+	 **/
+	public String getName();
 }

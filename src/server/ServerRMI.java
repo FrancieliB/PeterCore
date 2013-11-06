@@ -14,6 +14,14 @@ import exeception.PeterException;
 public interface ServerRMI extends Remote {
 	
 	/**
+	 * <b>
+	 * <p>%s - hostname from server</p>
+	 * <p>%s - number port from server</p>
+	 * </b>
+	 **/
+	static final String FORMAT_URL_SERVER = "rmi://%s:%s/peter-server";
+	
+	/**
 	 * Add the client to registry, for future callback
 	 * 
 	 * 
