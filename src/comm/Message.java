@@ -1,5 +1,12 @@
+package comm;
+
 import java.util.Date;
 
+/**
+ * @author Franci 
+ * @version 1.0
+ * @since November 6, 2013
+**/
 public class Message {
 
 	private String message;
