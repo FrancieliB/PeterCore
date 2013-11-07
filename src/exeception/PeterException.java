@@ -1,5 +1,6 @@
 package exeception;
 
+
 /**
  * @author Franci 
  * @version 1.0
@@ -18,6 +19,6 @@ public class PeterException extends RuntimeException {
 	}
 
 	public PeterException( Throwable cause ) {
-		super( cause );
+		super(cause);
 	}
 }

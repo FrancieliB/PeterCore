@@ -1,12 +1,11 @@
 package server;
 
+import java.io.Serializable;
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 import client.ClientRMI;
-
 import comm.Message;
-
-import exeception.PeterException;
 
 /**
  * @author Franci 
@@ -31,7 +30,7 @@ public interface ServerRMI extends Remote {
 	 *@throw		PeterRMIException
 	 *@see			{@link ClientRMI}
 	 **/
-	public void registryClientForCallBack( ClientRMI client ) throws PeterException;
+	public void registryClientForCallBack( ClientRMI client ) throws RemoteException;
 	
 	/**
 	 * Remove the client from registry
@@ -40,7 +39,7 @@ public interface ServerRMI extends Remote {
 	 *@throw		PeterRMIException
 	 *@see			{@link ClientRMI}
 	 **/
-	public void disconnectClient( ClientRMI client ) throws PeterException;
+	public void disconnectClient( ClientRMI client ) throws RemoteException;
 	
 	/**
 	 * List all connected clients
@@ -48,7 +47,7 @@ public interface ServerRMI extends Remote {
 	 *@return		Stirng[]
 	 *@throw		PeterRMIException
 	 **/
-	public String[] list() throws PeterException;
+	public String[] list() throws RemoteException;
 	
 	/**
 	 * Send message for a client
@@ -57,6 +56,6 @@ public interface ServerRMI extends Remote {
 	 *@throw		PeterRMIException
 	 *@see			{@link Message}
 	 **/
-	public void sendMessage( Message msg ) throws PeterException;
+	public void sendMessage( Message msg ) throws RemoteException;
 	
 }
