@@ -1,7 +1,6 @@
 package client;
 
 import java.rmi.Remote;
-import java.rmi.RemoteException;
 
 import comm.Message;
 
@@ -9,19 +8,25 @@ import exeception.PeterException;
 
 /**
  * @author Franci 
- * @version 1.0
+ * @version 1.2
  * @since November 6, 2013
 **/
 public interface ClientRMI extends Remote {
 
 	/**
 	 * <b>
-	 * <p>s% - hostname</p>
-	 * <p>s% - number port</p>
 	 * <p>s% - name client</p>
 	 * </b>
 	 **/
-	static final String FORMAT_URL_CLIENT = "%s:%s/peter/client/%s";
+	static final String FORMAT_URL_CLIENT = "peter/client/%s";
+	
+	/**
+	 * <b>
+	 * <p>s% - name sender</p>
+	 * <p>s% - message</p>
+	 * </b>
+	 **/
+	static final String FORMAT_MSG = "s% disse: s%";
 	
 	/**
 	 * Connect to server and add it to registry 
@@ -29,19 +34,17 @@ public interface ClientRMI extends Remote {
 	 *@param		host String  
 	 *@param		port Integer  
 	 *@throw		PeterRMIException
-	 *@exception	RemoteException
 	 **/
 	public void conectToServer( String host, Integer port ) throws PeterException;
 	
 	/**
-	 * Connect to server and add it to registry 
+	 *Get message from server 
 	 * 
 	 *@param		msg Message
 	 *@throw		PeterRMIException
-	 *@exception	RemoteException
 	 *@see			{@link Message}
 	 **/
-	public void sendMessage( Message msg ) throws PeterException;
+	public void receiveMessage( Message msg ) throws PeterException;
 	
 	/**
 	 * Hostname from client 

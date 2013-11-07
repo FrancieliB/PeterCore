@@ -1,14 +1,16 @@
 package server;
 
 import java.rmi.Remote;
-import java.rmi.RemoteException;
 
 import client.ClientRMI;
+
+import comm.Message;
+
 import exeception.PeterException;
 
 /**
  * @author Franci 
- * @version 1.0
+ * @version 1.1
  * @since November 6, 2013
 **/
 public interface ServerRMI extends Remote {
@@ -27,7 +29,6 @@ public interface ServerRMI extends Remote {
 	 * 
 	 *@param		client ClientRMI 
 	 *@throw		PeterRMIException
-	 *@exception	RemoteException
 	 *@see			{@link ClientRMI}
 	 **/
 	public void registryClientForCallBack( ClientRMI client ) throws PeterException;
@@ -37,9 +38,25 @@ public interface ServerRMI extends Remote {
 	 * 
 	 *@param		ClientRMI
 	 *@throw		PeterRMIException
-	 *@exception	RemoteException
 	 *@see			{@link ClientRMI}
 	 **/
 	public void disconnectClient( ClientRMI client ) throws PeterException;
+	
+	/**
+	 * List all connected clients
+	 * 
+	 *@return		Stirng[]
+	 *@throw		PeterRMIException
+	 **/
+	public String[] list() throws PeterException;
+	
+	/**
+	 * Send message for a client
+	 * 
+	 *@param		msg Message
+	 *@throw		PeterRMIException
+	 *@see			{@link Message}
+	 **/
+	public void sendMessage( Message msg ) throws PeterException;
 	
 }
